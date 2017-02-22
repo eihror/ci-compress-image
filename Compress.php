@@ -25,7 +25,7 @@ class Compress {
     
     /**
      * Function to compress image
-     * @return boolean
+     * @return array
      * @throws Exception
      */
     public function compress_image(){
