@@ -48,6 +48,6 @@ url_file_path | Site url file of a compressed image | eg.: http://url/to/project
 
 ## Don't use CI to create your projects?
 
-Use this composer library that i created, it's almost the same thing
+You can use this composer library that I've created, it's almost the same thing.
 
 * [Compress-image](https://github.com/eihror/compress-image)
