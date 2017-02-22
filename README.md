@@ -44,7 +44,7 @@ Item | Description | Examples
 ------------ | ------------- | -------------
 image | New name of compressed image | eg.: new_file_name.extension
 real_file_path | Real file path of a compressed image | eg.: X:/path/to/folder/of/project/new_file_name.extension
-url_file_path | Site url file of a compressed image | eg.: http://localhost/project/folder/new_file_name.extension
+url_file_path | Site url file of a compressed image | eg.: http://url/to/project/folder/new_file_name.extension
 
 ## Don't use CI to create your projects?
 
