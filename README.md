@@ -15,6 +15,7 @@ $this->load->library('Compress');  // load the codeginiter library
 $file = 'path/to/file/filename.extension'; // file that you wanna compress
 $new_name_image = 'new_name_of_file'; // name of new file compressed
 $quality = 60; // Value that I chose
+$pngQuality = 9; // Exclusive for PNG files
 $destination = 'final_path/to/file/'; // This destination must be exist on your project
 ```
 
@@ -28,6 +29,7 @@ Add values to each element:
 $compress->file_url = $file;
 $compress->new_name_image = $new_name_image;
 $compress->quality = $quality;
+$compress->pnQuality = $pngQuality; // Exclusive for PNG files, don´t need to set
 $compress->destination = $destination;
 ```
 
