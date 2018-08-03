@@ -29,7 +29,7 @@ Add values to each element:
 $compress->file_url = $file;
 $compress->new_name_image = $new_name_image;
 $compress->quality = $quality;
-$compress->pnQuality = $pngQuality; // Exclusive for PNG files, don´t need to set
+$compress->pngQuality = $pngQuality; // Exclusive for PNG files, don´t need to set
 $compress->destination = $destination;
 ```
 
