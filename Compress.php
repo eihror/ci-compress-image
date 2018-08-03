@@ -1,25 +1,23 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Compress {
     
     // @var file_url
     public $file_url;
-
     // @var new_name_image
     public $new_name_image;
-
     // @var quality
     public $quality;
-    
+    // @var png quality
+    public $pngQuality;
     // @var destination
     public $destination;
 
-    public function __construct($file_url = null, $new_name_image = null, $quality = null, $destination = null) {
+    public function __construct($file_url = null, $new_name_image = null, $quality = null, $pngQuality = null, $destination = null) {
         $this->file_url = $file_url;
         $this->new_name_image = $new_name_image;
         $this->quality = $quality;
+        $this->pngQuality = $pngQuality;
         $this->destination = $destination;
     }
     
@@ -36,10 +34,11 @@ class Compress {
         $last_char = null;
         $image_extension = null;
         $destination_extension = null;
-        $png_compression = 9;
+        $png_compression = null;
         $real_path_file = $_SERVER['DOCUMENT_ROOT'].parse_url($this->file_url, PHP_URL_PATH);
         $real_destination = $_SERVER['DOCUMENT_ROOT'].parse_url($this->destination, PHP_URL_PATH);
         $result = array();
+        $maxsize = 5245330;
         
         try{
             
@@ -48,7 +47,7 @@ class Compress {
                 throw new Exception('Please inform the image!');
                 return false;
             }
-            
+
             //Get image width, height, mimetype, etc..
             $image_data = getimagesize($this->file_url);
             //Set MimeType on variable
@@ -62,9 +61,9 @@ class Compress {
             
             //Get file size
             $image_size = filesize($real_path_file);
-                                    
+
             //if image size is bigger than 5mb
-            if($image_size > 10485760){
+            if($image_size >= $maxsize){
                 throw new Exception('Please send a imagem smaller than 5mb!');
                 return false;
             }
@@ -80,6 +79,9 @@ class Compress {
                 throw new Exception('Please inform the quality!');
                 return false;
             }
+
+            //If not found the png quality
+            $png_compression = (!empty($this->pngQuality)) ? $this->pngQuality : 9 ;
             
             $image_extension = pathinfo($this->file_url, PATHINFO_EXTENSION);
             //Verify if is sended a destination file name with extension
